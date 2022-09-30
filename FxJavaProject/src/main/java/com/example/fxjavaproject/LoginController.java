@@ -22,11 +22,37 @@ public class LoginController {
 
 
     @FXML
-    protected void loginOnClicked(ActionEvent event){
-        loginButton.setText("Clicked");
+    protected void registerOnClicked(ActionEvent event){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("register-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(),356,430);
+            Stage stage = new Stage();
+            stage.setTitle("Registration for our group");
+            stage.setScene(scene);
+            stage.show();
+            ((Node)event.getSource()).getScene().getWindow().hide();
+        } catch (IOException e) {
+            System.out.println(e.toString());
+        }
     }
     @FXML
-    protected void registerOnClicked(ActionEvent event){
-        if (emailTextField.)
+    protected void loginOnClicked(ActionEvent event){
+        String str = emailTextField.getText().toString();
+        String strq = passTextField.getText().toString();
+        if(str.equals("jomart") && strq.equals("123")){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("wlcm.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(),600,400);
+            Stage stage = new Stage();
+            stage.setTitle("Registration for our group");
+            stage.setScene(scene);
+            stage.show();
+            ((Node)event.getSource()).getScene().getWindow().hide();
+        } catch (IOException e) {
+            System.out.println(e.toString());
+        }
+        }
     }
 }
